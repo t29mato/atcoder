@@ -1,4 +1,4 @@
-const main = (input) => {
+const Main = (input) => {
     const array = input.split('')
     const count = array.reduce((a, c, i) => {
         if (c == 1) {
@@ -9,4 +9,4 @@ const main = (input) => {
     return count
 }
 
-module.exports = main
+module.exports = Main

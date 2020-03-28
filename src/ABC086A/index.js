@@ -1,4 +1,4 @@
-const main = (input) => {
+const Main = (input) => {
     const tmp = input.split(' ')
     const a = tmp[0]
     const b = tmp[1]
@@ -11,4 +11,4 @@ const main = (input) => {
 
 
 
-module.exports = main
+module.exports = Main
