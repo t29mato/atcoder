@@ -5,7 +5,6 @@ const Main = (input) => {
     numbers.sort((a, b) => b - a)
     count = 1
     numbers.reduce((prev, current) => {
-        console.log(prev, current)
         if (prev == current) {
             return prev
         } else {
