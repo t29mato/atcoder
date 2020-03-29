@@ -1,10 +1,25 @@
 const Main = (input) => {
-    tmp = input.replace('\n', '')
-    recursion(tmp)
+    reverseMessage = input.split('\n')[0].split('').reverse().join('')
+    reverseWord = ['dream', 'dreamer', 'erase', 'eraser'].map(word => word.split('').reverse().join(''))
+    count = 0
+    while(count < 4) {
+        count = 0
+        reverseWord.forEach(word => {
+            if (reverseMessage.indexOf(word) === 0) {
+                reverseMessage =　reverseMessage.replace(word, '')
+            } else {
+                count++
+            }
+        });
+    }
+    if (reverseMessage.length === 0) {
+        console.log('YES')
+    } else {
+        console.log('NO');
+    }
 }
 
 const recursion = (text) => {
-    // console.log(text, text.length, result)
     if (text.length === 0) {
         return 'YES'
     }
@@ -15,17 +30,6 @@ const recursion = (text) => {
         trimText = text.replace(s, '')
         recursion(trimText)
     })
-    // sleeping.forEach((s) => {
-    //     idx = text.indexOf(s)
-    //     if (idx === -1) {
-    //         return
-    //     }
-    //     trimText = text.replace(s, '')
-    //     if (trimText.length === 0) {
-    //         return
-    //     }
-    //     recursion(trimText, 'NO')
-    // })
 }
 
 //*この行以降は編集しないでください（標準入出力から一度に読み込み、mainを呼び出します）
