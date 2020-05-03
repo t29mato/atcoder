@@ -9,13 +9,16 @@ const Main = (input) => {
 
 const F = (n, min, max) => {
     result = 'NG'
-    for (i = min; i <= max; i++) {
-        // console.log(i, min, max, i >= n, i % n == 0)
-        if (i >= n && i % n == 0) {
-            result = 'OK'
-            break
-        }
+    if (min <= Math.floor(max / n) * n) {
+        result = 'OK'
     }
+    // for (i = min; i <= max; i++) {
+    //     // console.log(i, min, max, i >= n, i % n == 0)
+    //     if (i >= n && i % n == 0) {
+    //         result = 'OK'
+    //         break
+    //     }
+    // }
     return result
 }
 
