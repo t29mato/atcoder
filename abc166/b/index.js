@@ -8,7 +8,7 @@ let A = []
 input.shift()
 input.pop()
 dA = input.map(item => item.split(' ').map(item => parseInt(item, 10)))
-for (i = 0; i < NK[1]; i++) {
+for (i = 0; i < K; i++) {
     d.push(dA.shift())
     A.push(dA.shift())
 }
