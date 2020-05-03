@@ -17,5 +17,4 @@ for (i = 0; i < K; i++) {
     }
 }
 
-result = N - nosuke.size
-console.log(result)
+console.log(N - nosuke.size)
