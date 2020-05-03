@@ -5,25 +5,19 @@ const M = NM[1]
 const H = input.shift().split(' ').map(item => parseInt(item))
 input.pop() // lastが邪魔
 const A = input.map(item => item.split(' ').map(value => parseInt(value)))
+let goodPlaceList = new Array(N).fill(true)
 
-let road = []
-for (i = 0; i <= N; i++) {
-    road.push([])
-}
+// console.log('H: ', H)
+// console.log('A: ', A)
+
 for (i = 0; i < M; i++) {
-    road[A[i][0]].push(A[i][1])
-    road[A[i][1]].push(A[i][0])
-}
-let count = 0
-for (i = 1; i <= N; i++) {
-    if (road[i].length == 0) {
-        count++
-        continue
+    // console.log(i)
+    // console.log(H[A[i][0]-1], H[A[i][1]-1])
+    if (H[A[i][0]-1] <= H[A[i][1]-1]) {
+        goodPlaceList[A[i][0]-1] = false
     }
-    max = 0
-    road[i].forEach(item => {
-        if (H[item - 1] > max) max = H[item - 1]
-    });
-    if (max < H[i - 1]) count++
+    if (H[A[i][1]-1] <= H[A[i][0]-1]) {
+        goodPlaceList[A[i][1]-1] = false
+    }
 }
-console.log(count)
+console.log(goodPlaceList.filter((isGood => isGood == true)).length)
