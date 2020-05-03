@@ -7,7 +7,7 @@ let d = []
 let A = []
 input.shift()
 input.pop()
-dA = input.map(item => item.split(' ').map(item => parseInt(item, 10)))
+let dA = input.map(item => item.split(' ').map(item => parseInt(item, 10)))
 nosuke = new Map()
 for (i = 0; i < K; i++) {
     d.push(dA.shift())
