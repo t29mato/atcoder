@@ -20,11 +20,10 @@ for (i = 0; i <= K; i++) {
             after.push(A[pos])
         }
     } else {
-        before2 = new Array(...before)
-        before3 = new Array(...before)
-        // console.log('hoge', after, before2.splice(-after.length))
-        if (JSON.stringify(after) == JSON.stringify(before3.splice(-after.length))) {
-            console.log(A[i - after.length * 2 + K % after.length - 1])
+        if (before.includes(A[pos])) {
+            loopFirst = before.indexOf(A[pos])
+            loopLength = before.length - loopFirst
+            console.log(A[loopLength - loopFirst + K % loopLength])
             return
         } else {
             after.push(A[pos])
