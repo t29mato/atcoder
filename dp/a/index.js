@@ -7,6 +7,7 @@ dp = new Array(N)
 // console.log(dp)
 
 const dfs = (pos) => {
+    if (dp[pos]) return dp[pos]
     if (pos == 0) return dp[pos] = 0
     if (pos == 1) {
         if (!dp[0]) dp[0] = dfs(0)
@@ -14,9 +15,9 @@ const dfs = (pos) => {
     }
     if (pos >= 2) {
         if (!dp[pos-1]) dp[pos-1] = dfs(pos-1)
-        step1 = dp[pos-1] + Math.abs(H[pos] - H[pos-1])
         if (!dp[pos-2]) dp[pos-2] = dfs(pos-2)
-        step2 = dp[pos-2] + Math.abs(H[pos] - H[pos-2])
+        step1 = dfs(pos-1) + Math.abs(H[pos] - H[pos-1])
+        step2 = dfs(pos-2) + Math.abs(H[pos] - H[pos-2])
         return dp[pos] = Math.min(step1, step2)
     }
 }
