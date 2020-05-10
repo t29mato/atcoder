@@ -1,9 +1,9 @@
 input = require("fs").readFileSync("/dev/stdin", "utf8")
 cin = input.split(/ |\n/), cid = 0
 const next = () => cin[cid++]
-const nexts = (n) => cin.slice(cid, cid+=n)
+const nexts = (n) => cin.slice(cid, cid+=n).map(i=>parseInt(i))
 
-const [A, B, C, K] = nexts(4)
+let [A, B, C, K] = nexts(4)
 
 count = 0
 result = 0
