@@ -1,15 +1,9 @@
-let input = require("fs").readFileSync("/dev/stdin", "utf8").split("\n")[0].split(' ').map(i => parseInt(i))
+input = require("fs").readFileSync("/dev/stdin", "utf8")
+cin = input.split(/ |\n/), cid = 0
+const next = () => cin[cid++]
+const nexts = (n) => cin.slice(cid, cid+=n)
 
-const A = input[0]
-const B = input[1]
-const C = input[2]
-
-// const ABC = [
-//     [1, input[0]],
-//     [0, input[1]],
-//     [-1, input[2]]
-// ]
-const K = input[3]
+const [A, B, C, K] = nexts(4)
 
 count = 0
 result = 0
