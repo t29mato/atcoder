@@ -11,28 +11,29 @@ before = []
 after = []
 pos = 0
 
-for (i = 0; i < K; i++) {
-    console.log('初', before, after,pos)
-
-    before.forEach((value, index) => {
-
-    });
-
-    if (before.includes(A[pos])) {
-        console.log('あ', after, before.slice(-after.length))
-        if (after == before.slice(-after.length)) {
-            console.log(before, after)
-            console.log('い', A[before.length - after.length + K % after.length])
+for (i = 0; i <= K; i++) {
+    // console.log(before, after, pos)
+    if (after.length < 1) {
+        if (!before.includes(A[pos])) {
+            before.push(A[pos])
+        } else {
+            after.push(A[pos])
+        }
+    } else {
+        before2 = new Array(...before)
+        before3 = new Array(...before)
+        // console.log('hoge', after, before2.splice(-after.length))
+        if (JSON.stringify(after) == JSON.stringify(before3.splice(-after.length))) {
+            console.log(A[i - after.length * 2 + K % after.length - 1])
             return
         } else {
             after.push(A[pos])
-            pos = A[pos] - 1
-            continue
+        }
+        // console.log(K, i, K == i)
+        if (K == i) {
+            console.log(A[pos - 1])
+            return
         }
     }
-    if (i == K - 1) {
-        console.log('う', A[pos])
-    }
-    before.push(A[pos])
     pos = A[pos] - 1
 }
