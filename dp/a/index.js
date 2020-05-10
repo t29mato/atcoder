@@ -18,11 +18,7 @@ const dfs = (pos) => {
         step1 = dp[pos-1] + Math.abs(H[pos] - H[pos-1])
         if (dp[pos-2] == -1) dp[pos-2] = dfs(pos-2)
         step2 = dp[pos-2] + Math.abs(H[pos] - H[pos-2])
-        if (step1 >= step2) {
-            return dp[pos] = step2
-        } else {
-            return dp[pos] = step1
-        }
+        return dp[pos] = Math.min(step1, step2)
     }
 }
 
