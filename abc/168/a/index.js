@@ -3,7 +3,15 @@ let cin = input.split(/ |\n/), cid = 0
 const next = () => cin[cid++]
 const nexts = (n) => cin.slice(cid, cid+=n).map(i=>parseInt(i))
 
-const K = nexts(1)
-const S = nexts(1)
+const N = next()
+const lastN = N.slice(-1)
 
-console.log(K, S)
+const hon = [2, 4, 5, 7, 9]
+const pon = [0, 1, 6, 8]
+const bon = [3]
+
+if (hon.includes(parseInt(lastN))) console.log('hon')
+if (pon.includes(parseInt(lastN))) console.log('pon')
+if (bon.includes(parseInt(lastN))) console.log('bon')
+
+return
