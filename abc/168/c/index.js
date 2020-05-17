@@ -3,7 +3,12 @@ let cin = input.split(/ |\n/), cid = 0
 const next = () => cin[cid++]
 const nexts = (n) => cin.slice(cid, cid+=n).map(i=>parseInt(i))
 
-const K = next()
-const S = next()
+const [A, B, H, M] = nexts(4)
 
-console.log(Math.sqrt(3**2 + 4**2 - 2 * 3 * 4 * Math.cos(80 *(Math.PI / 180))))
+const long = M * 6.0
+const short = (H + M / 60) * 30.0
+const angle = Math.abs(long - short)
+
+// console.log(long, short, angle)
+const result = Math.sqrt(A**2 + B**2 - 2 * 3 * 4 * Math.cos(angle * (Math.PI / 180)))
+console.log(result)
