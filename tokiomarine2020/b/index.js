@@ -5,12 +5,7 @@ const nexts = (n) => cin.slice(cid, cid+=n).map(i=>parseInt(i))
 
 const [A, V, B, W, T] = nexts(5)
 
-for (let i = 1; i <= T; i++) {
-    if (A > B && A + i * V <= B + i * W) {
-        return console.log('YES')
-    }
-    if (A < B && A + i * V >= B + i * W) {
-        return console.log('YES')
-    }
-}
-console.log('NO')
+const distance = Math.abs(A - B)
+if (V <= W) return console.log('NO')
+const velocity = V - W
+distance / velocity <= T ? console.log('YES') : console.log('NO')
