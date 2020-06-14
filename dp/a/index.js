@@ -1,14 +1,23 @@
-const input = require("fs").readFileSync("/dev/stdin", "utf8").split("\n");
+const input = require("fs").readFileSync("/dev/stdin", "utf8")
+cin = input.split(/ |\n/), cid = 0
+const next = () => cin[cid++]
+const nexts = (n) => cin.slice(cid, cid+=n).map(j=>parseInt(j))
 
-const N = input[0].split(' ').map(item => parseInt(item))[0]
-const H = input[1].split(' ').map(item => parseInt(item))
+const N = next()
+H = nexts(N)
+H.pop()
+M = Array(N)
 
-dp = new Array()
-// console.log(dp)
-dp[0] = 0
-dp[1] = Math.abs(H[1] - H[0])
-for (i=2; i<N; i++) {
-    dp[i] = Math.min(dp[i-1] + Math.abs(H[i]-H[i-1]), dp[i-2] + Math.abs(H[i]-H[i-2]))
-}
-
-console.log(dp[N-1])
+for (i = 0; i < N; i++) {
+    if (i == 0) {
+        M[i] = 0
+    } else if (i == 1) {
+        M[i] = M[i-1] + Math.abs(H[i] - H[i-1])
+    } else {
+        M[i] = Math.min(
+            M[i-2] + Math.abs(H[i] - H[i-2]),
+            M[i-1] + Math.abs(H[i] - H[i-1])
+            )
+        }
+    }
+    console.log(M.pop())
