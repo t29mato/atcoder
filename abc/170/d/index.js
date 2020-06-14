@@ -2,20 +2,20 @@ const input = require("fs").readFileSync("/dev/stdin", "utf8")
 let cin = input.split(/ |\n/), cid = 0
 const next = () => cin[cid++]
 const nexts = (n) => cin.slice(cid, cid+=n).map(i=>parseInt(i))
+const xArray = (n, v) => [...Array(n)].fill(v)
 
 const N = parseInt(next())
-const A = nexts(N).sort((a, b) => a - b)
-count = N
+let array = xArray(1e6+1, 0)
 for (let i = 0; i < N; i++) {
-    if (A[i] == A[i+1]) {
-        count--
-        continue
-    }
-    for (let j = 0; j < i; j++) {
-        if (A[i] % A[j] == 0) {
-            count--
-            break
-        }
+    a = next()
+    array[a]++
+}
+let ans = 0
+for (let i = 0; i <= 1e6; i++) {
+    if(array[i] === 0) continue;
+    if(array[i] === 1) ans++;
+    for (let j = i + i; j <= 1e6; j+=i) {
+        array[j] = 0
     }
 }
-console.log(count)
+console.log(ans)
